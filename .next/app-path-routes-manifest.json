@@ -1,7 +1,0 @@
-{
-  "/api/analytics/dashboard/route": "/api/analytics/dashboard",
-  "/api/analytics/route": "/api/analytics",
-  "/api/health/route": "/api/health",
-  "/_not-found/page": "/_not-found",
-  "/video-growth-strategies/page": "/video-growth-strategies"
-}
