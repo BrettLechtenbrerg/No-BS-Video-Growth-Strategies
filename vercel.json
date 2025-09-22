@@ -1,0 +1,9 @@
+{
+  "redirects": [
+    {
+      "source": "/",
+      "destination": "/video-growth-strategies",
+      "permanent": false
+    }
+  ]
+}
