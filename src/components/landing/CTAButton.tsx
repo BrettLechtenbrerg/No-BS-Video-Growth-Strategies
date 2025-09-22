@@ -50,7 +50,10 @@ export function CTAButton({
       "cta"
     )
     
-    window.open(finalUrl, "_blank", "noopener,noreferrer")
+    // Only open window if we're on the client
+    if (typeof window !== "undefined") {
+      window.open(finalUrl, "_blank", "noopener,noreferrer")
+    }
   }
   
   return (

@@ -74,7 +74,7 @@ export function useLinkTracking(linkText: string, linkUrl?: string, options?: Cl
     const target = event.currentTarget as HTMLAnchorElement
     const href = target.href
     
-    if (href && href.startsWith("http") && !href.includes(window.location.hostname)) {
+    if (typeof window !== "undefined" && href && href.startsWith("http") && !href.includes(window.location.hostname)) {
       event.preventDefault()
       
       // Send analytics and navigate after a short delay

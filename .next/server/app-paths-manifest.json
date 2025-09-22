@@ -1,7 +1,7 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
   "/api/analytics/dashboard/route": "app/api/analytics/dashboard/route.js",
-  "/api/analytics/route": "app/api/analytics/route.js",
   "/api/health/route": "app/api/health/route.js",
+  "/api/analytics/route": "app/api/analytics/route.js",
+  "/_not-found/page": "app/_not-found/page.js",
   "/video-growth-strategies/page": "app/video-growth-strategies/page.js"
 }
