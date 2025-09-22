@@ -10,8 +10,16 @@ export function StickyMobileCTA() {
   const trackClick = useTrackClick()
   const [isVisible, setIsVisible] = useState(false)
   const [isDismissed, setIsDismissed] = useState(false)
+  const [isMounted, setIsMounted] = useState(false)
+
+  // Ensure component is only rendered on client
+  useEffect(() => {
+    setIsMounted(true)
+  }, [])
 
   useEffect(() => {
+    if (!isMounted) return
+
     const handleScroll = () => {
       if (isDismissed) return
       
@@ -34,7 +42,7 @@ export function StickyMobileCTA() {
     
     // Cleanup
     return () => window.removeEventListener("scroll", handleScroll)
-  }, [isDismissed])
+  }, [isDismissed, isMounted])
 
   const handleDismiss = () => {
     // Track CTA dismissal
@@ -44,7 +52,8 @@ export function StickyMobileCTA() {
     setIsVisible(false)
   }
 
-  if (!isVisible || isDismissed) {
+  // Don't render on server or before mounted
+  if (!isMounted || !isVisible || isDismissed) {
     return null
   }
 

@@ -33,6 +33,7 @@ export function useScrollTracking(options: UseScrollTrackingOptions = {}): Scrol
 
   useEffect(() => {
     if (!enabled) return
+    if (typeof window === "undefined") return
 
     // Reset start time when component mounts
     startTime.current = Date.now()
@@ -111,6 +112,7 @@ export function useScrollTracking(options: UseScrollTrackingOptions = {}): Scrol
   // Track time on page updates periodically
   useEffect(() => {
     if (!enabled) return
+    if (typeof window === "undefined") return
 
     const timeUpdateInterval = setInterval(() => {
       setTimeOnPage(updateTimeOnPage())
@@ -147,6 +149,8 @@ export function useElementScrollTracking(elementRef: React.RefObject<HTMLElement
   const [hasBeenVisible, setHasBeenVisible] = useState(false)
 
   useEffect(() => {
+    if (typeof window === "undefined") return
+    
     const element = elementRef.current
     if (!element) return
 

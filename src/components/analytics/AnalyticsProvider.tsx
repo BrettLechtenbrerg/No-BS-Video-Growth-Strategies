@@ -34,6 +34,7 @@ export function AnalyticsProvider({ children, enabled = true, debug = false }: A
   // Track page views on route changes
   useEffect(() => {
     if (!enabled) return
+    if (typeof window === "undefined") return
 
     const title = document.title
     const referrer = document.referrer
@@ -48,6 +49,7 @@ export function AnalyticsProvider({ children, enabled = true, debug = false }: A
   // Flush analytics when page is about to unload
   useEffect(() => {
     if (!enabled) return
+    if (typeof window === "undefined") return
 
     const handleBeforeUnload = () => {
       const analytics = getAnalytics()
