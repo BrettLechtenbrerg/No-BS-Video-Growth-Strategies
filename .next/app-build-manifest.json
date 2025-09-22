@@ -7,26 +7,26 @@
       "static/chunks/main-app-9532857b95cd315b.js",
       "static/chunks/app/_not-found/page-178d82aee1a5ac9c.js"
     ],
-    "/api/analytics/dashboard/route": [
-      "static/chunks/webpack-780b713459d1539e.js",
-      "static/chunks/4bd1b696-c023c6e3521b1417.js",
-      "static/chunks/255-40634877ae3e8e9d.js",
-      "static/chunks/main-app-9532857b95cd315b.js",
-      "static/chunks/app/api/analytics/dashboard/route-63876706d4182cbf.js"
-    ],
     "/api/health/route": [
       "static/chunks/webpack-780b713459d1539e.js",
       "static/chunks/4bd1b696-c023c6e3521b1417.js",
       "static/chunks/255-40634877ae3e8e9d.js",
       "static/chunks/main-app-9532857b95cd315b.js",
-      "static/chunks/app/api/health/route-63876706d4182cbf.js"
+      "static/chunks/app/api/health/route-2a6cc923d33a4fdb.js"
+    ],
+    "/api/analytics/dashboard/route": [
+      "static/chunks/webpack-780b713459d1539e.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-40634877ae3e8e9d.js",
+      "static/chunks/main-app-9532857b95cd315b.js",
+      "static/chunks/app/api/analytics/dashboard/route-2a6cc923d33a4fdb.js"
     ],
     "/api/analytics/route": [
       "static/chunks/webpack-780b713459d1539e.js",
       "static/chunks/4bd1b696-c023c6e3521b1417.js",
       "static/chunks/255-40634877ae3e8e9d.js",
       "static/chunks/main-app-9532857b95cd315b.js",
-      "static/chunks/app/api/analytics/route-63876706d4182cbf.js"
+      "static/chunks/app/api/analytics/route-2a6cc923d33a4fdb.js"
     ],
     "/layout": [
       "static/chunks/webpack-780b713459d1539e.js",
@@ -37,12 +37,19 @@
       "static/css/e5ed37d327fd23be.css",
       "static/chunks/app/layout-f7ff8631dcc38f77.js"
     ],
+    "/page": [
+      "static/chunks/webpack-780b713459d1539e.js",
+      "static/chunks/4bd1b696-c023c6e3521b1417.js",
+      "static/chunks/255-40634877ae3e8e9d.js",
+      "static/chunks/main-app-9532857b95cd315b.js",
+      "static/chunks/app/page-2a6cc923d33a4fdb.js"
+    ],
     "/video-growth-strategies/layout": [
       "static/chunks/webpack-780b713459d1539e.js",
       "static/chunks/4bd1b696-c023c6e3521b1417.js",
       "static/chunks/255-40634877ae3e8e9d.js",
       "static/chunks/main-app-9532857b95cd315b.js",
-      "static/chunks/app/video-growth-strategies/layout-63876706d4182cbf.js"
+      "static/chunks/app/video-growth-strategies/layout-2a6cc923d33a4fdb.js"
     ],
     "/video-growth-strategies/page": [
       "static/chunks/webpack-780b713459d1539e.js",
