@@ -20,6 +20,17 @@ const BatchAnalyticsSchema = z.object({
 
 export async function POST(request: NextRequest) {
   try {
+    // Check if database is available
+    if (!prisma) {
+      console.warn("Database not available - analytics events logged but not stored")
+      return apiSuccess({
+        processed: 0,
+        failed: 0,
+        total: 0,
+        message: "Analytics disabled - database not available"
+      }, "Analytics events received but not stored (database unavailable)")
+    }
+
     // Validate request body
     const validation = await validateRequest(request, BatchAnalyticsSchema)
     if (!validation.success) {
@@ -36,7 +47,7 @@ export async function POST(request: NextRequest) {
           await ensureSessionExists(event.sessionId, event.userId, event.userAgent, event.url)
 
           // Store the event
-          return await prisma.analyticsEvent.create({
+          return await prisma!.analyticsEvent.create({
             data: {
               id: event.id,
               event: event.event,
@@ -76,6 +87,8 @@ export async function POST(request: NextRequest) {
 
 async function ensureSessionExists(sessionId: string, userId?: string, userAgent?: string, url?: string) {
   try {
+    if (!prisma) return // Skip if database not available
+    
     // Check if session already exists
     const existingSession = await prisma.analyticsSession.findUnique({
       where: { sessionId }
@@ -117,6 +130,8 @@ async function ensureSessionExists(sessionId: string, userId?: string, userAgent
 
 async function updateSessionStatistics(events: any[]) {
   try {
+    if (!prisma) return // Skip if database not available
+    
     // Group events by session
     const sessionGroups = events.reduce((acc, event) => {
       if (!acc[event.sessionId]) {
@@ -136,7 +151,7 @@ async function updateSessionStatistics(events: any[]) {
     await Promise.allSettled(
       Object.entries(sessionGroups).map(async ([sessionId, stats]) => {
         const sessionStats = stats as { pageViews: number; totalEvents: number }
-        await prisma.analyticsSession.update({
+        await prisma!.analyticsSession.update({
           where: { sessionId },
           data: {
             pageViews: { increment: sessionStats.pageViews },

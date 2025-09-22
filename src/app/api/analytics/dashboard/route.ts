@@ -4,6 +4,23 @@ import { apiSuccess, apiError } from "@/lib/api-utils"
 
 export async function GET(request: NextRequest) {
   try {
+    // Check if database is available
+    if (!prisma) {
+      return apiSuccess({
+        summary: {
+          totalEvents: 0,
+          totalSessions: 0,
+          pageViews: 0,
+          buttonClicks: 0,
+          scrollEvents: 0
+        },
+        buttonStats: {},
+        scrollStats: {},
+        recentEvents: [],
+        message: "Database not available - analytics disabled"
+      }, "Analytics dashboard (database unavailable)")
+    }
+
     // Get analytics summary
     const [
       totalEvents,
@@ -49,7 +66,7 @@ export async function GET(request: NextRequest) {
     ])
 
     // Get most clicked buttons
-    const buttonClickData = await prisma.analyticsEvent.findMany({
+    const buttonClickData = await prisma!.analyticsEvent.findMany({
       where: { event: "button_click" },
       select: { properties: true }
     })
@@ -68,7 +85,7 @@ export async function GET(request: NextRequest) {
     }, {} as Record<string, number>)
 
     // Get scroll depth analytics
-    const scrollData = await prisma.analyticsEvent.findMany({
+    const scrollData = await prisma!.analyticsEvent.findMany({
       where: { event: "scroll_depth" },
       select: { properties: true }
     })
