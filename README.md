@@ -1,93 +1,156 @@
-# no_bs_video_growth_strategies
+# No BS Video Growth Strategies Landing Page
 
-A modern Next.js application built with Queen Claude foundation.
+A high-converting landing page for video growth strategies built with Next.js 15, featuring NLP-driven copy and conversion-focused design.
 
-## 🚀 What's Included (31 Packages)
+## 🚀 Live Demo
 
-### Core Stack
-- ⚡ **Next.js 15** with App Router
-- 🔒 **TypeScript** in strict mode  
-- 🎨 **Tailwind CSS** with dark mode support
+**Landing Page**: Access at `/video-growth-strategies`
 
-### Authentication & Database
-- 🔐 **NextAuth.js v5** - GitHub, Google, email auth
-- 🗄️ **Prisma** - Type-safe database ORM
-- ⚙️ **Type-safe env vars** - Runtime validation
+Visit the deployed version for team testing: [Coming Soon - Deploy to Vercel]
 
-### Forms & UI
-- 📝 **React Hook Form + Zod** - Forms with validation
-- 🎯 **Radix UI** - 8 primitive components (modals, dropdowns, etc.)
-- 🌟 **Framer Motion** - Smooth animations
-- 📁 **React Dropzone** - File upload handling
+## 🎯 Features
 
-### State & Data
-- 🏪 **Zustand** - Client state management  
-- 🔄 **TanStack Query** - Server state, caching, mutations
-- 📡 **Axios** - HTTP client
+### 🔥 Conversion-Optimized Design
+- **No navigation header** for focused conversion
+- **Multiple strategic CTAs** throughout the page
+- **Sticky mobile CTA** that appears after 50% scroll
+- **Go High Level integration** with UTM tracking
 
-### Developer Experience  
-- 🧪 **Vitest + Testing Library** - Fast testing
-- 🛠️ **ESLint + Prettier** - Code quality
-- 🪝 **Husky** - Git hooks
-- 🔍 **Next SEO** - Meta tag management
+### 📝 NLP-Driven Content
+- **Provocative headlines** using Socratic questioning
+- **Objection handling** throughout the copy
+- **Social proof** and authority positioning
+- **Urgency creation** with FOMO tactics
 
-## 📋 Essential Files
+### 📊 Complete Content Sections
+1. **Hero Section** - Rotating attention-grabbing headlines
+2. **Video Types** - Short-form, Long-form, UGC, AI-generated
+3. **Metrics & ROI** - Visual performance data
+4. **Equipment Reality** - Addressing the "$10K equipment" myth
+5. **Common Pitfalls** - What kills 90% of video creators
+6. **30-Day Quickstart** - Action plan preview
 
-- **📦 CAPABILITIES.md** - Complete list of 31 pre-installed packages and usage examples
-- **🎨 DESIGN_SYSTEM_TEMPLATE.md** - Ready for `/1-setup-design` command to create your design system
-- **⚙️ .env.example** - Environment variables template
+### 🔍 Analytics & Tracking
+- **Page view tracking** with session management
+- **Scroll depth analytics** (25%, 50%, 75%, 90%, 100%)
+- **Click tracking** for all buttons and CTAs
+- **Privacy-focused** - no external tracking services
+- **Non-blocking** performance for optimal UX
 
-## 🎨 Design System Setup
+## 🛠 Tech Stack
 
-**Before building UI, set up your design system:**
+- **Framework**: Next.js 15 with App Router
+- **Language**: TypeScript
+- **Styling**: Tailwind CSS with design system tokens
+- **UI Components**: shadcn/ui + Radix UI primitives
+- **Database**: Prisma ORM with SQLite (dev) / PostgreSQL (prod)
+- **Analytics**: Custom analytics with React hooks
+- **Deployment**: Vercel-ready
 
-```bash
-# In Claude Code, run these commands in sequence:
-/1-setup-design     # Choose colors, fonts, spacing
-/2-setup-foundation # Configure Tailwind + create templates
-```
-
-This will:
-1. Let you choose from 8 proven color themes (Apple, Stripe, GitHub, etc.)
-2. Select from 5 battle-tested font pairings (Inter, Montserrat, etc.)  
-3. Configure spacing and styling preferences
-4. Generate `DESIGN_SYSTEM.md` + update `tailwind.config.js` + create `COMPONENT_TEMPLATES.md`
-
-**Why this matters:** Agents get working, customized component patterns instead of hardcoded values.
-
-## Getting Started
+## 🚀 Quick Start
 
 ### Prerequisites
+- Node.js 18+ 
+- npm or yarn
 
-- Node.js 18.0 or later
-- npm 8.0 or later
-
-### Development
-
+### Installation
 ```bash
+# Clone the repository
+git clone https://github.com/BrettLechtenbrerg/No-BS-Video-Growth-Strategies.git
+cd No-BS-Video-Growth-Strategies
+
 # Install dependencies
 npm install
 
-# Set up environment variables
-cp .env.example .env.local
-# Edit .env.local with your values
+# Set up the database
+npx prisma db push
 
-# Set up database (SQLite ready out of the box)
-npm run db:push
-
-# Run development server
+# Start development server
 npm run dev
-
-# Build for production
-npm run build
-
-# Start production server
-npm run start
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Visit `http://localhost:3000/video-growth-strategies` to view the landing page.
 
-## Available Scripts
+## 🎨 Design System
+
+- **Color Palette**: Figma Creative theme with primary blue (#0066FF)
+- **Typography**: Inter font family with heading/body variants
+- **Spacing**: Design system classes (ds-1 through ds-6)
+- **Components**: Consistent with design tokens
+- **Responsive**: Mobile-first approach
+
+## 📁 Project Structure
+
+```
+src/
+├── app/
+│   ├── video-growth-strategies/     # Landing page route
+│   │   ├── layout.tsx              # No-header layout
+│   │   └── page.tsx                # Main landing page
+│   └── api/analytics/              # Analytics endpoints
+├── components/
+│   ├── landing/                    # Landing page components
+│   │   ├── HeroSection.tsx         # NLP-driven hero
+│   │   ├── VideoTypesSection.tsx   # Video type showcases
+│   │   ├── MetricsSection.tsx      # ROI visualization
+│   │   ├── CTAButton.tsx           # Tracked CTA component
+│   │   └── ...                     # Other sections
+│   └── ui/                         # shadcn/ui components
+├── lib/
+│   ├── analytics.ts                # Analytics manager
+│   └── prisma.ts                   # Database client
+└── hooks/
+    ├── useScrollTracking.ts        # Scroll behavior tracking
+    └── useClickTracking.ts         # Click behavior tracking
+```
+
+## 🚀 Deployment
+
+### Vercel (Recommended)
+1. Push to GitHub repository
+2. Import project in Vercel dashboard
+3. Configure environment variables:
+   ```
+   DATABASE_URL=your_postgres_connection_string
+   NEXTAUTH_SECRET=your_secret_key
+   ```
+4. Deploy automatically
+
+### Environment Variables
+```bash
+# Database
+DATABASE_URL="your_database_connection_string"
+
+# Authentication (if needed)
+NEXTAUTH_SECRET="your_nextauth_secret"
+NEXTAUTH_URL="https://your-domain.com"
+```
+
+## 📊 Analytics Dashboard
+
+Access analytics at `/api/analytics/dashboard` to view:
+- Page view statistics
+- Scroll depth metrics
+- Click tracking data
+- Session information
+
+## 🧪 Testing
+
+```bash
+# Run tests
+npm test
+
+# Run build test
+npm run build
+
+# Type checking
+npm run type-check
+
+# Linting
+npm run lint
+```
+
+## 🔧 Development Scripts
 
 ### Development
 - `npm run dev` - Start development server
@@ -98,95 +161,64 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 - `npm run lint` - Run ESLint
 - `npm run lint:fix` - Fix ESLint errors
 - `npm run type-check` - Run TypeScript type checking
-- `npm run format` - Format code with Prettier
-- `npm run format:check` - Check code formatting
 
 ### Database (Prisma)
 - `npm run db:push` - Push schema to database
 - `npm run db:generate` - Generate Prisma client
-- `npm run db:migrate` - Run database migrations  
 - `npm run db:studio` - Open database GUI
 
-### Testing
-- `npm test` - Run tests with Vitest
-- `npm run test:ui` - Run tests with UI
-- `npm run test:coverage` - Run tests with coverage report
+## 📝 Landing Page Copy Highlights
 
-### Analysis
-- `npm run analyze` - Analyze bundle size
+The landing page features compelling NLP copy including:
+- "What if 87% of your competitors are already using video to steal your customers?"
+- Equipment reality: "You don't need $10K equipment to start"
+- Pitfall warnings: "6 mistakes that kill 90% of video creators"
+- Social proof: "2,847+ businesses already growing with video"
 
-## Project Structure
+## 🎯 Key Conversion Elements
 
-```
-├── CAPABILITIES.md         # 31 pre-installed packages reference
-├── DESIGN_SYSTEM_TEMPLATE.md # Template for /1-setup-design command
-├── .env.example           # Environment variables template
-├── prisma/schema.prisma   # Database schema
-├── src/
-│   ├── app/                # Next.js App Router
-│   │   ├── api/auth/       # NextAuth API routes
-│   │   ├── layout.tsx      # Root layout
-│   │   ├── page.tsx        # Homepage
-│   │   └── __tests__/      # Page tests
-│   ├── components/         # Reusable components + providers
-│   ├── lib/               # Auth, Prisma, utilities
-│   ├── stores/            # Zustand state management  
-│   └── types/             # TypeScript definitions
-├── styles/globals.css     # Minimal Tailwind foundation
-└── ...config files
-```
+### Strategic CTA Placement
+- Hero section primary CTA
+- Post-video types section CTA
+- Equipment section CTA
+- Post-pitfalls section CTA
+- Quickstart section multiple CTAs
+- Sticky mobile CTA (50% scroll trigger)
 
-## Quality Gates
+### UTM Tracking
+All CTAs include proper UTM parameters:
+- `utm_source`: Section-specific sources
+- `utm_medium`: website
+- `utm_campaign`: video_growth_strategies
+- `utm_content`: Unique CTA identifiers
 
-This project includes pre-commit hooks that automatically:
-- Run ESLint and fix issues
-- Format code with Prettier
-- Ensure type safety with TypeScript
+## 🔧 Built with Queen Claude Foundation
 
-## Testing
+This project includes 31 essential packages:
 
-Tests are written with Vitest and React Testing Library:
+### Core Stack
+- ⚡ **Next.js 15** with App Router
+- 🔒 **TypeScript** in strict mode  
+- 🎨 **Tailwind CSS** with design system
 
-```bash
-# Run all tests
-npm test
+### Authentication & Database
+- 🗄️ **Prisma** - Type-safe database ORM
+- ⚙️ **Type-safe env vars** - Runtime validation
 
-# Run tests in watch mode
-npm test -- --watch
+### Forms & UI
+- 📝 **React Hook Form + Zod** - Forms with validation
+- 🎯 **Radix UI** - Primitive components
+- 🌟 **Framer Motion** - Smooth animations
 
-# Run tests with coverage
-npm run test:coverage
+### State & Data
+- 🏪 **Zustand** - Client state management  
+- 🔄 **TanStack Query** - Server state, caching
+- 📡 **Axios** - HTTP client
 
-# Run tests with UI
-npm run test:ui
-```
+## 📄 License
 
-## Bundle Analysis
+This project is proprietary. All rights reserved.
 
-Analyze your bundle size to optimize performance:
+---
 
-```bash
-npm run analyze
-```
-
-## 🚀 Quick Start Checklist
-
-1. ✅ **Install dependencies:** `npm install`
-2. ✅ **Set up environment:** `cp .env.example .env.local` 
-3. ✅ **Initialize database:** `npm run db:push`
-4. 🎨 **Create design system:** Run `/1-setup-design` in Claude Code
-5. 📦 **Check capabilities:** Read `CAPABILITIES.md` for available packages
-6. 🛠️ **Start building:** `npm run dev`
-
-## 🤖 For Autonomous Development
-
-**Key Files for AI Agents:**
-- **CAPABILITIES.md** - Prevents unnecessary package installations
-- **DESIGN_SYSTEM.md** - Ensures consistent UI design (created by `/1-setup-design`)
-- **Examples:** Check `src/components/` and `src/lib/` for usage patterns
-
-## Built with Queen Claude
-
-This foundation includes 31 essential packages covering authentication, database, forms, UI components, state management, and more - everything needed to build modern web applications without constantly installing dependencies.
-
-**Next steps:** Run `/1-setup-design` to create your design system, then start building!
+**Built with ❤️ for conversion optimization and business growth**
