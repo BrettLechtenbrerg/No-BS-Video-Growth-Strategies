@@ -3,11 +3,17 @@
 import { CheckCircle, TrendingUp, Users, Zap, Video, BarChart3, Target, Rocket } from 'lucide-react'
 import { useState, useEffect } from 'react'
 
+// IMPORTANT: This is the correct Go High Level preview URL - do not change
 const GO_HIGH_LEVEL_URL = 'https://app.gohighlevel.com/v2/preview/o6Eh2fviRJUWOjfqLZmr'
 
 export default function VideoGrowthStrategiesPage() {
   const [scrollDepth, setScrollDepth] = useState(0)
   const [showStickyButton, setShowStickyButton] = useState(false)
+
+  // Debug: Log the URL to console to verify it's correct
+  useEffect(() => {
+    console.log('Go High Level URL:', GO_HIGH_LEVEL_URL)
+  }, [])
 
   useEffect(() => {
     const handleScroll = () => {
