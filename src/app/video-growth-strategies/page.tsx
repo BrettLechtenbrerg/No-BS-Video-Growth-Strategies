@@ -1,10 +1,7 @@
 'use client'
 
-import { Button } from '@/components/ui/button'
-import { Card, CardContent } from '@/components/ui/card'
 import { CheckCircle, TrendingUp, Users, Zap, Video, BarChart3, Target, Rocket } from 'lucide-react'
 import { useState, useEffect } from 'react'
-import { track } from '@/lib/analytics'
 
 const GO_HIGH_LEVEL_URL = 'https://app.gohighlevel.com/v2/preview/o6Eh2fviRJUWOjfqLZmr'
 
@@ -13,29 +10,15 @@ export default function VideoGrowthStrategiesPage() {
   const [showStickyButton, setShowStickyButton] = useState(false)
 
   useEffect(() => {
-    track('page_view', { page: 'video-growth-strategies' })
-
     const handleScroll = () => {
       const scrollPercent = (window.scrollY / (document.body.scrollHeight - window.innerHeight)) * 100
       setScrollDepth(Math.round(scrollPercent))
       setShowStickyButton(scrollPercent > 50)
-
-      if (scrollPercent > 25 && scrollPercent <= 26) {
-        track('scroll_milestone', { depth: '25%' })
-      } else if (scrollPercent > 50 && scrollPercent <= 51) {
-        track('scroll_milestone', { depth: '50%' })
-      } else if (scrollPercent > 75 && scrollPercent <= 76) {
-        track('scroll_milestone', { depth: '75%' })
-      }
     }
 
     window.addEventListener('scroll', handleScroll)
     return () => window.removeEventListener('scroll', handleScroll)
   }, [])
-
-  const handleCTAClick = (location: string) => {
-    track('cta_click', { location, url: GO_HIGH_LEVEL_URL })
-  }
 
   return (
     <div className="min-h-screen bg-background">
@@ -49,16 +32,14 @@ export default function VideoGrowthStrategiesPage() {
             Have you ever wondered why some businesses explode with video marketing while others struggle to get views? 
             What separates viral success from forgotten content?
           </p>
-          <Button 
-            size="lg" 
-            className="text-lg px-8 py-6"
-            onClick={() => {
-              handleCTAClick('hero')
-              window.open(GO_HIGH_LEVEL_URL, '_blank')
-            }}
+          <a 
+            href={GO_HIGH_LEVEL_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-primary text-primary-foreground hover:bg-primary/90 text-lg px-8 py-6 rounded-md font-medium transition-colors"
           >
             Get Your Free Video Growth Guide
-          </Button>
+          </a>
           <p className="mt-4 text-sm text-muted-foreground">
             No fluff. No theory. Just proven strategies that work.
           </p>
@@ -80,26 +61,25 @@ export default function VideoGrowthStrategiesPage() {
               "You're unsure which platforms or video types to focus on",
               "You feel overwhelmed by all the video marketing advice out there"
             ].map((pain, index) => (
-              <Card key={index} className="border-2 hover:border-primary/50 transition-colors">
-                <CardContent className="p-6">
+              <div key={index} className="border-2 border-border hover:border-primary/50 transition-colors rounded-lg">
+                <div className="p-6">
                   <p className="text-lg">{pain}</p>
-                </CardContent>
-              </Card>
+                </div>
+              </div>
             ))}
           </div>
           <div className="mt-12 text-center">
             <p className="mb-6 text-xl font-semibold">
               What if there was a proven system that actually worked?
             </p>
-            <Button 
-              size="lg"
-              onClick={() => {
-                handleCTAClick('pain-points')
-                window.open(GO_HIGH_LEVEL_URL, '_blank')
-              }}
+            <a 
+              href={GO_HIGH_LEVEL_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-6 rounded-md font-medium transition-colors"
             >
               Show Me The System
-            </Button>
+            </a>
           </div>
         </div>
       </section>
@@ -162,8 +142,8 @@ export default function VideoGrowthStrategiesPage() {
             ].map((type, index) => {
               const Icon = type.icon
               return (
-                <Card key={index} className="overflow-hidden">
-                  <CardContent className="p-8">
+                <div key={index} className="border border-border rounded-lg overflow-hidden bg-background">
+                  <div className="p-8">
                     <div className="mb-4 flex items-center gap-3">
                       <div className="rounded-lg bg-primary/10 p-3">
                         <Icon className="h-6 w-6 text-primary" />
@@ -181,21 +161,20 @@ export default function VideoGrowthStrategiesPage() {
                         </li>
                       ))}
                     </ul>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
               )
             })}
           </div>
           <div className="mt-8 text-center">
-            <Button 
-              size="lg"
-              onClick={() => {
-                handleCTAClick('video-types')
-                window.open(GO_HIGH_LEVEL_URL, '_blank')
-              }}
+            <a 
+              href={GO_HIGH_LEVEL_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-block bg-primary text-primary-foreground hover:bg-primary/90 px-8 py-6 rounded-md font-medium transition-colors"
             >
               Get The Complete Video Playbook
-            </Button>
+            </a>
           </div>
         </div>
       </section>
@@ -217,15 +196,15 @@ export default function VideoGrowthStrategiesPage() {
             ].map((stat, index) => {
               const Icon = stat.icon
               return (
-                <Card key={index} className="text-center">
-                  <CardContent className="p-8">
+                <div key={index} className="text-center border border-border rounded-lg">
+                  <div className="p-8">
                     <div className="mx-auto mb-4 w-fit rounded-full bg-primary/10 p-4">
                       <Icon className="h-8 w-8 text-primary" />
                     </div>
                     <p className="mb-2 text-4xl font-heading font-bold text-primary">{stat.metric}</p>
                     <p className="text-muted-foreground">{stat.label}</p>
-                  </CardContent>
-                </Card>
+                  </div>
+                </div>
               )
             })}
           </div>
@@ -241,17 +220,14 @@ export default function VideoGrowthStrategiesPage() {
           <p className="mb-8 text-lg opacity-90">
             Stop guessing. Start growing. Get the exact blueprint that successful businesses use to dominate with video.
           </p>
-          <Button 
-            size="lg" 
-            variant="secondary"
-            className="text-lg px-8 py-6"
-            onClick={() => {
-              handleCTAClick('final')
-              window.open(GO_HIGH_LEVEL_URL, '_blank')
-            }}
+          <a 
+            href={GO_HIGH_LEVEL_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-block bg-background text-foreground hover:bg-background/90 text-lg px-8 py-6 rounded-md font-medium transition-colors"
           >
             Get Instant Access to the Video Growth Guide
-          </Button>
+          </a>
           <p className="mt-4 text-sm opacity-75">
             100% Free. No credit card required. Instant download.
           </p>
@@ -261,16 +237,14 @@ export default function VideoGrowthStrategiesPage() {
       {/* Sticky CTA for Mobile */}
       {showStickyButton && (
         <div className="fixed bottom-0 left-0 right-0 z-50 bg-background/95 backdrop-blur-sm border-t p-4 md:hidden">
-          <Button 
-            size="lg" 
-            className="w-full"
-            onClick={() => {
-              handleCTAClick('sticky-mobile')
-              window.open(GO_HIGH_LEVEL_URL, '_blank')
-            }}
+          <a 
+            href={GO_HIGH_LEVEL_URL}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block w-full bg-primary text-primary-foreground hover:bg-primary/90 px-6 py-3 rounded-md font-medium transition-colors text-center"
           >
             Get Your Free Guide Now
-          </Button>
+          </a>
         </div>
       )}
     </div>
