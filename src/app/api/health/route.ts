@@ -3,28 +3,19 @@ import { prisma } from "@/lib/prisma"
 
 export async function GET() {
   try {
-    let databaseStatus = "unavailable"
-    
-    // Test database connection if available
-    if (prisma) {
-      try {
-        await prisma.$queryRaw`SELECT 1`
-        databaseStatus = "connected"
-      } catch (dbError) {
-        databaseStatus = "disconnected"
-      }
-    }
+    // Test database connection
+    await prisma.$queryRaw`SELECT 1`
 
     return NextResponse.json({
       status: "healthy",
       timestamp: new Date().toISOString(),
-      database: databaseStatus,
+      database: "connected",
     })
   } catch (error) {
     return NextResponse.json({
       status: "unhealthy",
       timestamp: new Date().toISOString(),
-      database: "error",
+      database: "disconnected",
       error: error instanceof Error ? error.message : "Unknown error",
     }, { status: 500 })
   }

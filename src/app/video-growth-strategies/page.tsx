@@ -12,7 +12,7 @@ export default function VideoGrowthStrategiesPage() {
             What separates viral success from forgotten content?
           </p>
           <a 
-            href="https://app.gohighlevel.com/location/boPxhNvcNB6T3F2CLP0M/page-builder/nWuS6gee27ffuHmp1R93"
+            href="/go"
             className="inline-block bg-purple-600 text-white hover:bg-purple-700 text-lg px-8 py-6 rounded-md font-medium transition-colors"
           >
             Get Your Video Strategy Guide →
@@ -48,7 +48,7 @@ export default function VideoGrowthStrategiesPage() {
               What if there was a proven system that actually worked?
             </p>
             <a 
-              href="https://app.gohighlevel.com/v2/preview/o6Eh2fviRJUWOjfqLZmr"
+              href="/go"
               className="inline-block bg-blue-600 text-white hover:bg-blue-700 px-8 py-6 rounded-md font-medium transition-colors"
             >
               Show Me The System
@@ -127,7 +127,7 @@ export default function VideoGrowthStrategiesPage() {
           </div>
           <div className="mt-8 text-center">
             <a 
-              href="https://app.gohighlevel.com/v2/preview/o6Eh2fviRJUWOjfqLZmr"
+              href="/go"
               className="inline-block bg-blue-600 text-white hover:bg-blue-700 px-8 py-6 rounded-md font-medium transition-colors"
             >
               Get The Complete Video Playbook
@@ -170,7 +170,7 @@ export default function VideoGrowthStrategiesPage() {
             Stop guessing. Start growing. Get the exact blueprint that successful businesses use to dominate with video.
           </p>
           <a 
-            href="https://app.gohighlevel.com/v2/preview/o6Eh2fviRJUWOjfqLZmr"
+            href="/go"
             className="inline-block bg-white text-blue-600 hover:bg-gray-100 text-lg px-8 py-6 rounded-md font-medium transition-colors"
           >
             Get Instant Access to the Video Growth Guide

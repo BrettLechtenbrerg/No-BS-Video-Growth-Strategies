@@ -20,38 +20,14 @@ model Setting {
   updatedAt   DateTime @updatedAt
 }
 
-// Analytics models for tracking user behavior
-model AnalyticsEvent {
-  id          String   @id @default(cuid())
-  event       String   // e.g., 'page_view', 'scroll_depth', 'button_click', etc.
-  properties  String?  // JSON string of event properties
-  sessionId   String
-  userId      String?
-  url         String
-  userAgent   String?
-  timestamp   DateTime @default(now())
-  createdAt   DateTime @default(now())
-
-  @@index([event])
-  @@index([sessionId])
-  @@index([userId])
-  @@index([timestamp])
-}
-
-model AnalyticsSession {
-  id            String   @id @default(cuid())
-  sessionId     String   @unique
-  userId        String?
-  startTime     DateTime @default(now())
-  endTime       DateTime?
-  pageViews     Int      @default(0)
-  totalEvents   Int      @default(0)
-  referrer      String?
-  userAgent     String?
-  createdAt     DateTime @default(now())
-  updatedAt     DateTime @updatedAt
-
-  @@index([userId])
-  @@index([startTime])
-}
+// Add your additional data models here as needed
+// Example:
+// model Product {
+//   id          String   @id @default(cuid())
+//   name        String
+//   description String?
+//   price       Float
+//   createdAt   DateTime @default(now())
+//   updatedAt   DateTime @updatedAt
+// }
 
